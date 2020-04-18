@@ -1,3 +1,40 @@
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
 }
+
+h2 {
+    margin-top: 10px;
+    text-align: center;
+}
+
+div.wrapper-div {
+    max-width: 500px;
+    margin: auto;
+    padding: 10px;
+    /* height: 100%; */
+    background-color: #b5b5b5;
+}
+
+input {
+    width: 100%;
+    font-size: 18px;
+}
+
+p.label {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+p.app-info {
+    text-align: center;
+    font-style: italic;
+    font-size: 12px;
+}
+
+div.resultDiv {
+    background-color: white;
+    height: 50%;
+    padding: 10px;
+    font-size: 28px;
+    overflow: auto;
+}
