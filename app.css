@@ -38,3 +38,17 @@ div.result-div {
     font-size: 28px;
     overflow: auto;
 }
+
+div.output-items {
+    overflow: auto;
+}
+
+.output-left {
+    float: left;
+    display: inline-block;
+}
+
+.output-right {
+    float: right;
+    display: inline-block;
+}
