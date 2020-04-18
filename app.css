@@ -52,3 +52,8 @@ div.output-items {
     float: right;
     display: inline-block;
 }
+
+a.copy-to-clipboard {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
