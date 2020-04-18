@@ -25,9 +25,9 @@ const updateResultBuilder = (targetElement, transformFunction) => {
 
 
 window.onload = () => {
-    const outerForm = document.getElementById('outerForm');
-    const textInput = document.getElementById('textInput');
-    const resultDiv = document.getElementById('resultDiv');
+    const outerForm = document.getElementById('outer-form');
+    const textInput = document.getElementById('text-input');
+    const resultDiv = document.getElementById('result-div');
 
     outerForm.addEventListener('submit', event => {
         // We don't want to actually submit anything; everything should happen "live"
