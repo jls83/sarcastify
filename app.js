@@ -24,7 +24,9 @@ const updateResultBuilder = (targetElement, transformFunction) => {
 };
 
 const transformLinkElement = linkElement => {
-    console.log('Copied!');
+    const originalValue = linkElement.innerHTML;
+    linkElement.innerHTML = 'Copied!';
+    setTimeout(() => linkElement.innerHTML = originalValue, 2000);
 }
 
 const copyToClipboardBuilder = (linkElement, targetElement) => {
