@@ -7,6 +7,15 @@ h2 {
     text-align: center;
 }
 
+a:link, a:visited {
+    color: #0000cc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 div.wrapper-div {
     max-width: 500px;
     margin: auto;
