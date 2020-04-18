@@ -29,12 +29,29 @@ const transformLinkElement = linkElement => {
 
 const copyToClipboardBuilder = (linkElement, targetElement) => {
     return event => {
-        targetElement.focus();
-        targetElement.select()
+        event.preventDefault();
+
+        /*
+         * The following is from this Stack Overflow post:
+         * https://stackoverflow.com/questions/47931843/javascript-copy-to-clipboard-not-working/47932145
+        */
+        let range;
+        if (document.body.createTextRange) {
+            range = document.body.createTextRange();
+            range.moveToElementText(targetElement);
+            range.select();
+        }
+        else if (window.getSelection) {
+            const selection = window.getSelection();
+            range = document.createRange();
+            range.selectNodeContents(targetElement);
+            selection.removeAllRanges();
+            selection.addRange(range);
+        }
 
         try {
             const success = document.execCommand('copy');
-            if (success === 'successful') {
+            if (success) {
                 transformLinkElement(linkElement);
             }
             else {
@@ -51,6 +68,7 @@ window.onload = () => {
     const outerForm = document.getElementById('outer-form');
     const textInput = document.getElementById('text-input');
     const resultDiv = document.getElementById('result-div');
+    const copyLink = document.getElementById('copy-link');
 
     outerForm.addEventListener('submit', event => {
         // We don't want to actually submit anything; everything should happen "live"
@@ -59,4 +77,7 @@ window.onload = () => {
 
     const updateResult = updateResultBuilder(resultDiv, sarcastify);
     textInput.addEventListener('input', updateResult);
+
+    const copyToClipboard = copyToClipboardBuilder(copyLink, resultDiv);
+    copyLink.addEventListener('click', copyToClipboard);
 }
