@@ -23,6 +23,29 @@ const updateResultBuilder = (targetElement, transformFunction) => {
     };
 };
 
+const transformLinkElement = linkElement => {
+    console.log('Copied!');
+}
+
+const copyToClipboardBuilder = (linkElement, targetElement) => {
+    return event => {
+        targetElement.focus();
+        targetElement.select()
+
+        try {
+            const success = document.execCommand('copy');
+            if (success === 'successful') {
+                transformLinkElement(linkElement);
+            }
+            else {
+                alert('Could not copy text to clipboard. Please try again.');
+            }
+        }
+        catch (err) {
+            alert('Could not copy text to clipboard. Please try again.');
+        }
+    }
+}
 
 window.onload = () => {
     const outerForm = document.getElementById('outer-form');
