@@ -1,3 +1,11 @@
+/**
+ * Transforms the `inStr` to a sarcastic version.
+ *
+ * @param {string} inStr - The string ot sarcastify
+ * @param {boolean} skipSpaces - Whether or not we should skip space chars when changing cases
+ * @param {number} letterSkip - The number of letters to skip when changing cases
+ * @returns {string}
+ */
 const sarcastify = (inStr, skipSpaces = false, letterSkip = 2) => {
     const indexPredicate = i => i % letterSkip === 0;
 
@@ -16,6 +24,25 @@ const sarcastify = (inStr, skipSpaces = false, letterSkip = 2) => {
         .join('');
 };
 
+/**
+ * Changes the `linkElement` when clicked
+ *
+ * @param {Element} linkElement - The `a` tag to transform
+ */
+const transformLinkElement = linkElement => {
+    const originalValue = linkElement.innerHTML;
+    linkElement.innerHTML = 'Copied!';
+    setTimeout(() => linkElement.innerHTML = originalValue, 2000);
+}
+
+/**
+ * Creates a event listener to update the contents of `targetElement` using the
+ * `transformFunction`
+ *
+ * @param {Element} targetElement - The element to tranform
+ * @param {Function} transformFunction - The function that transforms the contents
+ * @returns {Function}
+ */
 const updateResultBuilder = (targetElement, transformFunction) => {
     return event => {
         const value = event.target.value;
@@ -23,12 +50,14 @@ const updateResultBuilder = (targetElement, transformFunction) => {
     };
 };
 
-const transformLinkElement = linkElement => {
-    const originalValue = linkElement.innerHTML;
-    linkElement.innerHTML = 'Copied!';
-    setTimeout(() => linkElement.innerHTML = originalValue, 2000);
-}
-
+/**
+ * Creates a event listener to copy the contents of `targetElement` when `linkElement` is clicked.
+ *
+ * @param {Element} linkElement - The element that is actually clicked; this reference is
+ *                                used to call the `transformLinkElement` method
+ * @param {Element} targetElement - The element to copy from
+ * @returns {Function}
+ */
 const copyToClipboardBuilder = (linkElement, targetElement) => {
     return event => {
         event.preventDefault();
