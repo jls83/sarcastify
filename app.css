@@ -3,7 +3,10 @@ body {
 }
 
 h2 {
-    margin-top: 0.75em;
+    font-family: Impact, sans-serif;
+    font-size: 2.5em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
     text-align: center;
 }
 
@@ -23,6 +26,7 @@ div.result-div {
     background-color: white;
     height: 50%;
     padding: 0.3em;
+    font-family: Impact, sans-serif;
     font-size: 2.3em;
     overflow: auto;
 }
