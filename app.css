@@ -70,3 +70,7 @@ a:hover {
     float: right;
     display: inline-block;
 }
+
+::placeholder {
+    color: #aaaaaa;
+}
