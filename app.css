@@ -55,6 +55,12 @@ a:hover {
     margin-bottom: 0.3em;
 }
 
+.text-box-borders {
+    border-color: #999999;
+    border-style: solid;
+    border-width: 2px; /* At this small size, using `em` seems silly */
+}
+
 .output-left {
     float: left;
     display: inline-block;
